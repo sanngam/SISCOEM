@@ -24,7 +24,7 @@ require_once 'views/navbar.php';
         <div class="col-md-9">
             <p>
             <h4>Sistema de Compatibilidad de Empleo</h4>
-            <h4>Registrar docente</h4>
+            <h4>Registrar Docente</h4>
             </p>
         </div>
     </div>
@@ -43,7 +43,9 @@ require_once 'views/navbar.php';
                     <input type="text" class="form-control" placeholder="Ingresa nombre(s)" id="nombre" name="nombre">
                 </div>
             </div>
-
+     <input type="text" name='name[]' >
+    <input type="text" name='name[]' >
+    <input type="text" name='name[]' >
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="" class="form-label" for="apePaterno">Apellido Paterno
@@ -145,7 +147,7 @@ require_once 'views/navbar.php';
                     <div class="form-label" for="plaza">Plaza
                         <span class="form-text" id="asterisco_plaza">*</span>:
                     </div>
-                    <input type="text" class="form-control" placeholder="Ingresa la plaza" id="plaza">
+                    <input type="text" class="form-control" placeholder="Ingresa la plaza" id="plaza" name="plaza">
                 </div>
 
             </div>
@@ -235,10 +237,10 @@ require_once 'views/navbar.php';
             </div>
             <div class="col-md-4">
                 <div class="form-group datepicker-group">
-                    <label class="control-label" for="ingresoDgti">Ingreso a la DGETI
-                        <span id="asterisco_ingresoDgti">*</span>:
+                    <label class="control-label" for="ingresoDgeti">Ingreso a la DGETI
+                        <span id="asterisco_ingresoDgeti">*</span>:
                     </label>
-                    <input class="form-control" id="ingresoDgti" name="ingresoDgti" type="text">
+                    <input class="form-control" id="ingresoDgeti" name="ingresoDgeti" type="text">
                     <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                 </div>
             </div>
@@ -261,7 +263,7 @@ require_once 'views/navbar.php';
             </div>
             <div class="pull-right">
                 <span class="btn btn-primary" id="btn_registrar">Registrar</span>
-                <span class="btn btn-default">Salir</span>
+                <span class="btn btn-default" href="carga">Salir</span>
             </div>
         </div>
     </form>

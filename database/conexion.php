@@ -2,7 +2,7 @@
 
 function conexion(){
 
-  $conexion = new mysqli("127.0.0.1", "root", "", "simdirne_siscoem");
+  $conexion = new mysqli("localhost", "root", "", "siscoem");
 
   if($conexion->connect_errno){
     echo "Error en la conexion al modelo: <br>" . $conexion->connect_error;

@@ -33,9 +33,9 @@
           require_once 'views/formatoCompatibilidad/listaChecable.php';
           break;
 
-        case 'menu':
-          require_once 'views/Menu/menu.php';
-          break;
+          case 'carga':
+            require_once 'views/carga.php';
+            break;  
 
         default:
           require_once 'views/Login/login.php';

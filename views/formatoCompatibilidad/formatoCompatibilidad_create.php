@@ -8,7 +8,7 @@ require_once 'views/navbar.php';
   </div>
   <div class="row">
     <div class="col-md-3">
-      <h1>CISCOEM</h1>
+      <h1>SISCOEM</h1>
     </div>
     <div class="col-md-9">
       <p>
@@ -50,7 +50,6 @@ require_once 'views/navbar.php';
     <li class="active"><a data-toggle="tab" href="#tab-01">Datos Personales</a></li>
     <li><a data-toggle="tab" href="#tab-02">Institucion 1</a></li>
     <li><a data-toggle="tab" href="#tab-03">Institucion 2</a></li>
-    <li><a data-toggle="tab" href="#tab-04">Institucion Externa</a></li>
     <li><a data-toggle="tab" href="#tab-05">Lista Checable</a></li>
   </ul>
   <div class="tab-content">

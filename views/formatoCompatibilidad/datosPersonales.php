@@ -22,6 +22,10 @@ require_once 'views/navbar.php';
         <input type="text" class="form-control" placeholder="" id="nombre" name="nombre" disabled>
       </div>
     </div>
+
+
+    
+
     <div class="col-md-4">
       <div class="form-group">
         <label for="" class="form-label" for="apePaterno">Apellido Paterno
@@ -39,6 +43,7 @@ require_once 'views/navbar.php';
       </div>
     </div>
   </div>
+
 
 
 

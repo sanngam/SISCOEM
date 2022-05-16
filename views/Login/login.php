@@ -1,3 +1,4 @@
+
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-center">
@@ -16,10 +17,10 @@
 
                     <div class="form-group">
                         <label class="col-sm-3 control-label" for="email">Usuario
-                            <span class="form-text" id="asterisco_usuario">*</span>:
+                            <span class="form-text" id="asterisco_email">*</span>:
                         </label>
                         <div class="col-sm-9">
-                            <input class="form-control" id="usuario" name="usuario" placeholder="Ingresa tu email" type="email">
+                            <input class="form-control" id="email" name="email" placeholder="Ingresa tu email" type="email">
                         </div>
                     </div>
                     <div class="form-group">
@@ -47,12 +48,9 @@
                     <div class="form-group">
                         <div class="col-sm-3"></div>
                         <div class="col-sm-4">
-                            <button type="button" class="btn btn-primary" id="enviar">Enviar</button>
+                            <button type="button" class="btn btn-primary" id="enviar">Ingresar</button>
                         </div>
-                        <div class="col-sm-1"></div>
-                        <div class="col-sm-4">
-                            <a class="btn btn-primary pull-right" href="registroLogin" id="crearCuenta">Crear cuenta</a>
-                        </div>
+                    
                     </div>
                 </form>
             </div>

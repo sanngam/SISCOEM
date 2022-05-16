@@ -2,11 +2,11 @@ $gmx(document).ready(function () {
 
     $('#enviar').click(function () {
         let texto_error = "";
-        if ($('#usuario').val() == "") {
-            alertaError('#asterisco_usuario', '#usuario');
+        if ($('#email').val() == "") {
+            alertaError('#asterisco_email', '#email');
             texto_error = texto_error + 'El campo del Usuario esta vacio <br>';
         } else {
-            limpiarAlertaError('#asterisco_usuario', '#usuario');
+            limpiarAlertaError('#asterisco_email', '#email');
             texto_error = "";
         } if ($('#password').val() == "") {
             alertaError('#asterisco_password', '#password');
@@ -28,11 +28,11 @@ $gmx(document).ready(function () {
             success: function (r) {
                 console.log(r);
                 if (r == 1) {
-                    window.location="personal";
+                    window.location="carga";
                     console.log("ingresado con exito");
                 } else {
                     alert("Usuario o contraseña incorrectos")
-                    console.log("la informacion no se guardo");
+                    console.log("acceso correcto");
 
                 }
             }

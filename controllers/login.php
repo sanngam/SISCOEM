@@ -6,7 +6,7 @@
 
   $objeto_conexion = conexion();
 
-  $email = $_POST['usuario'];
+  $email = $_POST['email'];
   $password = sha1($_POST['password']);
 
 
