@@ -2,7 +2,7 @@
 require_once("../database/database.php");
 require_once("../login/views/registroLogin.php");
 
-    require_once("../database/database.php");
+    //require_once("../database/database.php");
 //require_once("../database/database.php");
 //require_once("../views/registroLogin.php");
 

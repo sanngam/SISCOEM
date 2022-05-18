@@ -1,5 +1,5 @@
 <?php
-require_once("../database/conexion.php");
+/*require_once("../database/conexion.php");
 
 $objeto_para_usar_conexion = conexion();
 $datos_recibidos =  array(
@@ -24,19 +24,7 @@ $datos_recibidos =  array(
 
     
 );
-/*/foreach($objeto_para_usar_conexion as $datos_recibidos){
-    $unidad=$datos_recibidos['unidad'];
-    $subunidad=$datos_recibidos['subunidad'];
-    $categoria=$datos_recibidos['categoria'];
-    $horas=$datos_recibidos['horas'];
-    $plaza=$datos_recibidos['plaza'];
-    $motivo=$datos_recibidos['motivo'];
-    $puesto=$datos_recibidos['puesto'];
-    $guardar=mysqli_query($gua,"INSERT INTO guardando_datos (unidad, subunidad, categoria, horas, plaza, motivo, puesto) VALUES('$unidad', '$subunidad', '$categoria', '$horas', '$plaza', '$motivo', '$puesto')");
 
-}
-*/
-print_r($datos_recibidos);
 
 
 $query_insert = "INSERT INTO trabajador(nombre, apePaterno, apeMaterno, rfc, curp, 
@@ -53,5 +41,6 @@ echo $insert_preparado->execute();
 
 $insert_preparado->close();
 
-
+*/
 ?>
+

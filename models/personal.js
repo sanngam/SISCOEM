@@ -1,32 +1,136 @@
-const doc = document;
-const btn_registrar = doc.querySelector('#btn_registrar');
-const registro ={
-  nombre:document.querySelector('#nombre'),
-  names: document.querySelectorAll('[name="name[]"]'),
+const btn_registrar = document.querySelector("#btn_registrar");
+const btn_agregar = document.querySelector("#btn_agregar");
+const tbody = document.querySelector("#tabla_base tbody");
+const rfc = document.querySelector("#rfc");
 
+const handleAdd = () => {
+  const item = {
+    unidad: document.querySelector("#unidad").value,
+    sub_unidad: document.querySelector("#sub_unidad").value,
+    categoria: document.querySelector("#categoria").value,
+    horas: document.querySelector("#horas").value,
+    motivo: document.querySelector("#motivo").value,
+    plaza: document.querySelector("#plaza").value,
+    puesto: document.querySelector("#puesto").value,
+  };
+
+  const tr = document.createElement("tr");
+  const td_unidad = document.createElement("td");
+  td_unidad.textContent = item.unidad;
+  const td_sub_unidad = document.createElement("td");
+  td_sub_unidad.textContent = item.sub_unidad;
+
+  const td_categoria = document.createElement("td");
+  td_categoria.textContent = item.categoria;
+
+  const td_horas = document.createElement("td");
+  td_horas.textContent = item.horas;
+
+  const td_motivo = document.createElement("td");
+  td_motivo.textContent = item.motivo;
+
+  const td_plaza = document.createElement("td");
+  td_plaza.textContent = item.plaza;
+
+  const td_puesto = document.createElement("td");
+  td_puesto.textContent = item.puesto;
+
+  const td_action = document.createElement("td");
+  const btn_action = document.createElement("button");
+  btn_action.type = "button";
+  btn_action.textContent = "X";
+  btn_action.classList.add("btn");
+  btn_action.classList.add("btn-danger");
+  td_action.appendChild(btn_action);
+
+  const data = [
+    td_unidad,
+    td_sub_unidad,
+    td_categoria,
+    td_horas,
+    td_plaza,
+    td_motivo,
+    td_puesto,
+    td_action,
+  ];
+  tr.append(...data);
+  tbody.appendChild(tr);
 };
-const handleSubmit=(e)=>{
-  
-  const new_names = [];
-  
-  
 
-
-  const arr = registro.names;
-
-  arr.forEach(element, index => {
-    console.log(element.value);
+const handleSubmit = async () => {
+  const arr = tbody.childNodes;
+  const data_arr = [];
+  const data = {
+    nombre: document.querySelector("#nombre").value,
+    apePaterno: document.querySelector("#apePaterno").value,
+    apeMaterno: document.querySelector("#apeMaterno").value,
+    rfc: document.querySelector("#rfc").value,
+    curp: document.querySelector("#curp").value,
+  };
+  arr.forEach((tr) => {
+    const tr_childs = tr.childNodes;
+    const obj = {
+      unidad: tr_childs[0].textContent,
+      sub_unidad: tr_childs[1].textContent,
+      categoria: tr_childs[2].textContent,
+      horas: tr_childs[3].textContent,
+      plaza: tr_childs[4].textContent,
+      motivo: tr_childs[5].textContent,
+      puesto: tr_childs[6].textContent,
+    };
+    data_arr.push(obj);
   });
+  const data_footer = {
+    ingresoGob: document.querySelector("#ingresoGob").value,
+    ingresoSep: document.querySelector("#ingresoSep").value,
+    ingresoDgeti: document.querySelector("#ingresoDgeti").value,
+    observaciones: document.querySelector("#observaciones").value,
+  };
+  const final_data = {
+    user: data,
+    datos_trabajdor: data_arr,
+    fata_footer: data_footer,
+  };
 
+  $.ajax({
+    type: "POST",
+    data: final_data,
+    url: "controllers/test.php",
+    success: function (r) {
+      console.log(r);
+    },
+  });
+};
+
+const handleDeleteItem = ({ target }) => {
+  if (target.classList.contains("btn-danger")) {
+    target.parentNode.parentNode.remove();
+  }
+};
+
+const handleBlurRfc = ({ target }) => {
+  const value = document.querySelector("#rfc").value;
+
+  if (target.classList.contains("is-invalid")) {
+    target.classList.remove("is-invalid");
+    document.querySelector("#rfc_error").textContent = "";
+  }
+
+  if (value.length != 13) {
+    target.classList.add("is-invalid");
+    document.querySelector("#rfc_error").textContent = "Revisa el RFC";
+  }
 }
 
-btn_registrar.addEventListener('click',handleSubmit)
 
 
 
 
 
-
+btn_registrar.addEventListener("click", handleSubmit);
+btn_agregar.addEventListener("click", handleAdd);
+tbody.addEventListener("click", handleDeleteItem);
+rfc.addEventListener("blur", handleBlurRfc);
 
 // $gmx(document).ready(function () {
 
@@ -38,12 +142,9 @@ btn_registrar.addEventListener('click',handleSubmit)
 //   eventoTecladoMayusculas('plaza');
 //   eventoTecladoMayusculas('observaciones');
 
-
-
 //   $('#ingresoGob').datepicker({ changeYear: true });
 //   $('#ingresoSep').datepicker({ changeYear: true });
 //   $('#ingresoDgeti').datepicker({ changeYear: true });
-
 
 //   const contenedor_tabla_uno = [
 //     [[], [], [], [], [], [], []],
@@ -136,7 +237,6 @@ btn_registrar.addEventListener('click',handleSubmit)
 //       contenedor_tabla_uno[cont][0][1].appendChild(contenedor_tabla_uno[cont][0][2]);
 //       contenedor_tabla_uno[cont][0][0].appendChild(contenedor_tabla_uno[cont][0][1]);
 
-
 //       contenedor_tabla_uno[cont][1][1] = document.createElement("TD");
 //       contenedor_tabla_uno[cont][1][2] = document.createTextNode(sub_unidad);
 //       contenedor_tabla_uno[cont][1][1].setAttribute("id", "sub_unidad_" + cont);
@@ -182,8 +282,6 @@ btn_registrar.addEventListener('click',handleSubmit)
 //       $('#puesto').val("");
 
 //     }
-
-
 
 //   });
 
@@ -299,7 +397,6 @@ btn_registrar.addEventListener('click',handleSubmit)
 //       texto_error = `Debes llenar todos los campos <br>${texto_error}`;
 //     }
 
-
 //     if (texto_error != "" && cont != 0) {
 //       mensajeError('#alerta', texto_error);
 //       irArriba();
@@ -309,7 +406,7 @@ btn_registrar.addEventListener('click',handleSubmit)
 //      console.log($('#form_registrar_docente').serialize() + informacion);
 //       limpiaMensajeError('#alerta');
 //       // let form_url = $('#form_registrar_docente').attr("action");
-      
+
 //       $.ajax({
 //         type: 'POST',
 //         data: $('#form_registrar_docente').serialize()+informacion,
